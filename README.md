@@ -7,7 +7,6 @@ A full-stack CMS web application for an interior design and furniture business, 
 - **Backend**: PHP 8.3+, Laravel 13
 - **Frontend**: Blade templates, Tailwind CSS 4, Vite
 - **Database**: MySQL
-- **Currency**: OMR (Omani Rial)
 
 ## Features
 
