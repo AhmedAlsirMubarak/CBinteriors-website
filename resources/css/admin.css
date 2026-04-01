@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+    --font-body:          'DM Sans', system-ui, sans-serif;
+
+    --color-cb-black:     #0C0C0B;
+    --color-cb-gray-50:   #F7F6F3;
+    --color-cb-gray-100:  #F2F1EE;
+    --color-cb-gray-200:  #E8E6E1;
+    --color-cb-gray-300:  #D0CEC8;
+    --color-cb-gray-400:  #A8A39B;
+    --color-cb-gray-500:  #6B6560;
+    --color-cb-gray-600:  #4A4440;
+    --color-cb-gray-700:  #322E2A;
+    --color-cb-gray-800:  #1C1A17;
+}
+
+@layer base {
+    html { -webkit-font-smoothing: antialiased; }
+    body { @apply font-body bg-cb-gray-50 text-cb-black; }
+}
+
+@layer components {
+    /* Sidebar */
+    .sidebar-link {
+        @apply flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-body
+               text-cb-gray-600 transition-all duration-200
+               hover:bg-cb-gray-100 hover:text-cb-black;
+    }
+    .sidebar-link.active {
+        @apply bg-cb-black text-white;
+    }
+
+    /* Admin buttons */
+    .admin-btn {
+        @apply inline-flex items-center gap-2 px-4 py-2 text-sm font-body font-medium
+               transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1;
+    }
+    .admin-btn-primary {
+        @apply inline-flex items-center gap-2 px-4 py-2 text-sm font-body font-medium
+               transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1
+               bg-cb-black text-white hover:bg-cb-gray-800 focus:ring-cb-black;
+    }
+    .admin-btn-outline {
+        @apply inline-flex items-center gap-2 px-4 py-2 text-sm font-body font-medium
+               transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1
+               border border-cb-gray-300 text-cb-gray-700 hover:bg-cb-gray-100 focus:ring-cb-gray-300;
+    }
+    .admin-btn-danger {
+        @apply inline-flex items-center gap-2 px-4 py-2 text-sm font-body font-medium
+               transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1
+               bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+    }
+
+    /* Table */
+    .admin-table {
+        @apply w-full text-sm;
+    }
+    .admin-table th {
+        @apply px-4 py-3 text-left text-xs font-medium tracking-wider text-cb-gray-500 uppercase bg-cb-gray-50 border-b border-cb-gray-200;
+    }
+    .admin-table td {
+        @apply px-4 py-3 border-b border-cb-gray-100 text-cb-gray-700;
+    }
+    .admin-table tr:hover td {
+        @apply bg-cb-gray-50;
+    }
+
+    /* Form fields */
+    .admin-input {
+        @apply w-full rounded-lg border border-cb-gray-300 px-3 py-2.5 text-sm
+               text-cb-black bg-white placeholder-cb-gray-400
+               focus:outline-none focus:ring-2 focus:ring-cb-black focus:border-transparent
+               transition-all duration-200;
+    }
+    .admin-label {
+        @apply block text-xs font-medium tracking-wide uppercase text-cb-gray-500 mb-1.5;
+    }
+    .admin-textarea {
+        @apply w-full rounded-lg border border-cb-gray-300 px-3 py-2.5 text-sm
+               text-cb-black bg-white placeholder-cb-gray-400
+               focus:outline-none focus:ring-2 focus:ring-cb-black focus:border-transparent
+               transition-all duration-200 resize-y min-h-32;
+    }
+
+    /* Card */
+    .admin-card {
+        @apply bg-white rounded-xl border border-cb-gray-200 shadow-sm;
+    }
+
+    /* Badge */
+    .badge-green  { @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800; }
+    .badge-red    { @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-700; }
+    .badge-gray   { @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-cb-gray-100 text-cb-gray-600; }
+    .badge-amber  { @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-amber-100 text-amber-800; }
+
+    /* Stat card */
+    .stat-card {
+        @apply bg-white rounded-xl border border-cb-gray-200 shadow-sm p-6 flex flex-col gap-1;
+    }
+
+    /* Drag handle for SortableJS */
+    .drag-handle {
+        display: inline-block;
+        padding: 2px 6px;
+        font-size: 1.1rem;
+        line-height: 1;
+        cursor: grab;
+        user-select: none;
+        touch-action: none;
+        color: var(--color-cb-gray-300);
+    }
+    .drag-handle:hover { color: var(--color-cb-gray-500); }
+    .drag-handle:active { cursor: grabbing; }
+
+    /* Apply ghost/chosen to <td> cells so table rows render correctly */
+    .sortable-ghost > td { background-color: var(--color-cb-gray-100); opacity: 0.5; }
+    .sortable-chosen > td { background-color: var(--color-cb-gray-50); box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+}

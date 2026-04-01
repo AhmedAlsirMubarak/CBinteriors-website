@@ -19,21 +19,13 @@ class SettingController extends Controller
 
     public function update(Request $request)
     {
-        $data = $request->except(['_token', '_method']);
-
-        foreach ($data as $key => $value) {
-            // Handle image uploads separately
-            if ($request->hasFile($key)) {
-                $old = Setting::get($key);
-                if ($old) Storage::disk('public')->delete($old);
-                $value = $request->file($key)->store('settings', 'public');
-            }
-
+        // Text/textarea values come as settings[key] => value
+        foreach ($request->input('settings', []) as $key => $value) {
             Setting::set($key, $value);
         }
 
-        // Handle image fields that weren't in the form (file inputs)
-        foreach ($request->allFiles() as $key => $file) {
+        // Image uploads come as settings[key] => UploadedFile
+        foreach ($request->file('settings', []) as $key => $file) {
             $old = Setting::get($key);
             if ($old) Storage::disk('public')->delete($old);
             Setting::set($key, $file->store('settings', 'public'));

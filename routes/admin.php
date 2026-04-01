@@ -9,6 +9,9 @@ use App\Http\Controllers\Admin\ProductAdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\InquiryController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\ProcessStepController;
+use App\Http\Controllers\Admin\TeamMemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,6 +86,32 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::prefix('settings')->name('settings.')->group(function () {
             Route::get('/',  [SettingController::class, 'index'])->name('index');
             Route::post('/', [SettingController::class, 'update'])->name('update');
+        });
+
+        // ── Clients ───────────────────────────────────────────
+        Route::prefix('clients')->name('clients.')->group(function () {
+            Route::get('/',             [ClientController::class, 'index'])->name('index');
+            Route::post('/',            [ClientController::class, 'store'])->name('store');
+            Route::put('/{client}',     [ClientController::class, 'update'])->name('update');
+            Route::delete('/{client}',  [ClientController::class, 'destroy'])->name('destroy');
+            Route::patch('/reorder',    [ClientController::class, 'reorder'])->name('reorder');
+        });
+
+        // ── Process Steps ─────────────────────────────────────
+        Route::prefix('process')->name('process.')->group(function () {
+            Route::get('/',             [ProcessStepController::class, 'index'])->name('index');
+            Route::post('/',            [ProcessStepController::class, 'store'])->name('store');
+            Route::put('/{process}',    [ProcessStepController::class, 'update'])->name('update');
+            Route::delete('/{process}', [ProcessStepController::class, 'destroy'])->name('destroy');
+            Route::patch('/reorder',    [ProcessStepController::class, 'reorder'])->name('reorder');
+        });
+
+        Route::prefix('team')->name('team.')->group(function () {
+            Route::get('/',           [TeamMemberController::class, 'index'])->name('index');
+            Route::post('/',          [TeamMemberController::class, 'store'])->name('store');
+            Route::put('/{team}',     [TeamMemberController::class, 'update'])->name('update');
+            Route::delete('/{team}',  [TeamMemberController::class, 'destroy'])->name('destroy');
+            Route::patch('/reorder',  [TeamMemberController::class, 'reorder'])->name('reorder');
         });
     });
 });

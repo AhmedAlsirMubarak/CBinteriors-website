@@ -10,13 +10,14 @@ class Page extends Model
     use HasFactory;
 
     protected $fillable = [
-        'slug', 'title', 'subtitle', 'body',
+        'slug', 'title', 'subtitle', 'body', 'meta',
         'hero_image', 'meta_title', 'meta_description',
         'sort_order', 'active',
     ];
 
     protected $casts = [
         'active' => 'boolean',
+        'meta'   => 'array',
     ];
 
     // ── Scopes ───────────────────────────────────────────────

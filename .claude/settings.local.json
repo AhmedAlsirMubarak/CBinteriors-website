@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php artisan:*)",
+      "Bash(npm run:*)",
+      "Bash(find c:laragonwwwCBinterior-websiteappHttpControllersAdmin -type f -name *.php)",
+      "Bash(mv Aboutcontroller.php AboutController.php)",
+      "Bash(mv Contactcontroller.php ContactController.php)",
+      "Bash(mv Pagecontroller.php PageController.php)",
+      "Bash(mv Servicecontroller.php ServiceController.php)",
+      "Bash(mv Productcontroller.php ProductController.php)",
+      "Bash(php artisan tinker --execute=\":*)",
+      "Bash(grep -v \"^$\")",
+      "Bash(sed -i 's/use App\\\\\\\\Models\\\\\\\\Page;/use App\\\\\\\\Models\\\\\\\\Page;\\\\nuse App\\\\\\\\Models\\\\\\\\TeamMember;/' c:/laragon/www/CBinterior-website/app/Http/Controllers/AboutController.php)",
+      "Bash(sed -i \"s/return view\\(''pages.about'', compact\\(''page''\\)\\);/$team = TeamMember::active\\(\\)->ordered\\(\\)->get\\(\\);\\\\n\\\\n        return view\\(''pages.about'', compact\\(''page'', ''team''\\)\\);/\" c:/laragon/www/CBinterior-website/app/Http/Controllers/AboutController.php)",
+      "Bash(grep -n \"json\\\\|JsonResource\\\\|AcceptsJson\\\\|json_decode\\\\|wantsJson\" c:/laragon/www/CBinterior-website/app/Http/Middleware/*.php)",
+      "Bash(php -r \":*)",
+      "Bash(php bootstrap/seed_home_meta.php)",
+      "Bash(grep -n \"findBySlug\\\\|Page::\" /c/laragon/www/CBinterior-website/resources/views/pages/*.blade.php)",
+      "Bash(php bootstrap/seed_about_meta.php)",
+      "Bash(rm bootstrap/seed_about_meta.php)"
+    ]
+  }
+}

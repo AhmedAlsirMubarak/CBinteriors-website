@@ -27,6 +27,7 @@ class PageSeeder extends Seeder
                 'meta_title'       => 'About Us — CB Interiors',
                 'meta_description' => 'Learn about CB Interiors, our design philosophy, and the team behind Oman\'s most refined interior design studio.',
                 'sort_order'       => 2,
+                'meta'             => ['stat1_value'=>'10+','stat1_label'=>'Years of Excellence','stat2_value'=>'250+','stat2_label'=>'Satisfied Clients','stat3_value'=>'500+','stat3_label'=>'Projects Completed','stat4_value'=>'15+','stat4_label'=>'Design Awards'],
             ],
             [
                 'slug'             => 'services',
@@ -54,6 +55,15 @@ class PageSeeder extends Seeder
                 'meta_title'       => 'Contact Us — CB Interiors',
                 'meta_description' => 'Contact CB Interiors to discuss your interior design project. Our studio is based in Muscat, Oman.',
                 'sort_order'       => 5,
+            ],
+            [
+                'slug'             => 'partners',
+                'title'            => 'Our Partners',
+                'subtitle'         => 'We are proud to have collaborated with leading brands and organisations across the region.',
+                'body'             => null,
+                'meta_title'       => 'Our Partners — CB Interiors',
+                'meta_description' => 'Discover the brands and clients CB Interiors has partnered with across Oman and the region.',
+                'sort_order'       => 8,
             ],
             [
                 'slug'             => 'terms',
