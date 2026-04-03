@@ -2,6 +2,46 @@
 
 A full-stack CMS web application for an interior design and furniture business, built with Laravel 13 and Tailwind CSS 4.
 
+## Screenshots
+
+### Website Pages
+
+| Home | About |
+|------|-------|
+| ![Home Page](screenshots/homepage.png) | ![About Page](screenshots/about.png) |
+
+| Services | Products |
+|----------|----------|
+| ![Services Page](screenshots/services.png) | ![Products Page](screenshots/products.png) |
+
+| Partners | Contact |
+|----------|---------|
+| ![Partners Page](screenshots/partners.png) | ![Contact Page](screenshots/contact.png) |
+
+### Admin Dashboard
+
+| Dashboard | Pages |
+|-----------|-------|
+ ![Admin Login](screenshots/login.png) | ![Dashboard](screenshots/dashboard.png) | ![Pages](screenshots/dashboard-pages.png) |
+
+| Services | Products |
+|----------|----------|
+| ![Admin Services](screenshots/dashboard-services.png) | ![Admin Products](screenshots/dashboard-products.png) |
+
+| Categories | Clients |
+|-----------|---------|
+| ![Admin Categories](screenshots/dashboard-categories.png) | ![Admin Clients](screenshots/dashboard-clients.png) |
+
+| Team | Inquiries |
+|------|-----------|
+| ![Admin Team](screenshots/dashboard-team.png) | ![Admin Inquiries](screenshots/dashboard-inquiries.png) |
+
+| Settings | Login |
+|----------|-------|
+| ![Admin Settings](screenshots/dashboard-settings.png) |
+
+---
+
 ## Tech Stack
 
 - **Backend**: PHP 8.3+, Laravel 13
