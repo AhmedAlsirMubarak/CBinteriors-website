@@ -26,7 +26,7 @@ A full-stack CMS web application for an interior design and furniture business, 
 
 | Services | Products |
 |----------|----------|
-| ![Admin Services](screenshots/dashboard-services.png) | ![Admin Products](screenshots/dashboard-products.png) |
+| ![Admin Services](screenshots/dashboard-services.png) | ![Admin Products](screenshots/dashboard-product.png) |
 
 | Categories | Clients |
 |-----------|---------|
