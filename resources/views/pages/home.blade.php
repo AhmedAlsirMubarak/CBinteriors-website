@@ -106,7 +106,8 @@
     <div class="relative w-full lg:w-1/2 min-h-[55vw] sm:min-h-[45vw] lg:min-h-0">
         @if($page?->heroImageUrl())
             <img src="{{ $page->heroImageUrl() }}" alt="CB Interiors"
-                 class="absolute inset-0 w-full h-full object-cover">
+                 class="absolute inset-0 w-full h-full object-cover"
+                 fetchpriority="high" loading="eager" decoding="async">
         @else
             {{-- Decorative fallback --}}
             <div class="absolute inset-0 bg-cb-warm flex items-center justify-center overflow-hidden">
@@ -303,7 +304,7 @@
                     {{-- Image area --}}
                     @if($service->imageUrl())
                         <div class="aspect-4/3 overflow-hidden">
-                            <img src="{{ $service->imageUrl() }}" alt="{{ $service->title }}" loading="lazy"
+                            <img src="{{ $service->imageUrl() }}" alt="{{ $service->title }}" loading="lazy" decoding="async"
                                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                         </div>
                     @else
@@ -321,6 +322,7 @@
                             <p class="font-body text-sm text-cb-gray-500 leading-relaxed mb-5">{{ $service->short_desc }}</p>
                         @endif
                         <a href="{{ route('services.show', $service->slug) }}"
+                           aria-label="Learn more about {{ $service->title }}"
                            class="inline-flex items-center gap-2 font-body text-xs tracking-[0.18em] uppercase text-cb-black
                                   border-b border-cb-gray-300 pb-0.5 hover:border-cb-black transition-colors duration-300 group/link">
                             Learn More
@@ -354,6 +356,7 @@
                 </h2>
             </div>
             <a href="{{ route('products.index') }}"
+               aria-label="View all our work"
                class="btn-outline self-start sm:self-auto animate-on-scroll">
                 View All
             </a>
@@ -380,7 +383,7 @@
                          style="animation-delay:{{ $i * 60 }}ms">
                     <a href="{{ route('products.show', $product->slug) }}" class="block w-full h-full">
                         @if($product->primaryImageUrl())
-                            <img src="{{ $product->primaryImageUrl() }}" alt="{{ $product->name }}" loading="lazy"
+                            <img src="{{ $product->primaryImageUrl() }}" alt="{{ $product->name }}" loading="lazy" decoding="async"
                                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                         @else
                             <div class="w-full h-full flex items-center justify-center">

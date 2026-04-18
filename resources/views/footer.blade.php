@@ -8,6 +8,7 @@
             {{-- Brand --}}
             <div class="sm:col-span-2 lg:col-span-1">
                 <img src="{{ asset('images/cb-logo.png') }}" alt="CB Interiors"
+                     width="192" height="64"
                      class="h-16 w-auto mb-5 sm:mb-6 opacity-90">
                 <p class="font-body text-sm text-white/80 leading-relaxed max-w-xs mb-6 sm:mb-8">
                     {{ $siteSettings['tagline'] ?? 'Crafting spaces that inspire — luxury interior design in Oman.' }}
