@@ -5,6 +5,18 @@
 @section('content')
 
 <div class="max-w-3xl">
+
+    @if($errors->any())
+        <div class="mb-5 p-4 bg-red-50 border border-red-200 rounded-xl">
+            <p class="font-body text-sm font-medium text-red-700 mb-2">Please fix the following errors:</p>
+            <ul class="list-disc list-inside space-y-1">
+                @foreach($errors->all() as $error)
+                    <li class="font-body text-sm text-red-600">{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <form method="POST" action="{{ route('admin.products.update', $product) }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
@@ -55,15 +67,10 @@
                                 <div class="relative group">
                                     <img src="{{ $url }}" alt=""
                                          class="w-24 h-20 object-cover rounded-lg border border-cb-gray-200">
-                                    <form method="POST"
-                                          action="{{ route('admin.products.remove-image', $product) }}"
-                                          class="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                        @csrf @method('PATCH')
-                                        <input type="hidden" name="image_path" value="{{ $imagePath }}">
-                                        <button type="submit"
-                                                class="w-5 h-5 bg-red-600 text-white rounded-full flex items-center justify-center text-xs leading-none"
-                                                data-confirm="Remove this image?">×</button>
-                                    </form>
+                                    <button type="submit"
+                                            form="remove-image-{{ $i }}"
+                                            class="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity w-5 h-5 bg-red-600 text-white rounded-full flex items-center justify-center text-xs leading-none"
+                                            data-confirm="Remove this image?">×</button>
                                     @if($i === 0)
                                         <span class="absolute bottom-1 left-1 text-[9px] bg-cb-black text-white px-1 rounded">Primary</span>
                                     @endif
@@ -101,6 +108,18 @@
             <a href="{{ route('admin.products.index') }}" class="admin-btn-outline rounded-lg">Cancel</a>
         </div>
     </form>
+
+    {{-- Remove-image forms live outside the main form to avoid nested-form invalid HTML --}}
+    @foreach($product->allImageUrls() as $i => $url)
+        @php $imagePath = $product->images[$i]; @endphp
+        <form id="remove-image-{{ $i }}"
+              method="POST"
+              action="{{ route('admin.products.remove-image', $product) }}">
+            @csrf @method('PATCH')
+            <input type="hidden" name="image_path" value="{{ $imagePath }}">
+        </form>
+    @endforeach
+
 </div>
 
 @endsection

@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Support\ImageOptimizer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -55,6 +56,11 @@ class ProductAdminController extends Controller
 
     public function update(Request $request, Product $product)
     {
+        Log::info('ProductAdminController@update called', [
+            'product_id' => $product->id,
+            'input'      => $request->except(['_token', '_method', 'new_images']),
+        ]);
+
         $validated = $this->validateProduct($request, $product->id);
         $validated['slug']        = Str::slug($validated['name']);
         $validated['is_featured'] = $request->boolean('is_featured');
