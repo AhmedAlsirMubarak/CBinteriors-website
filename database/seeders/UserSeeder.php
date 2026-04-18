@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
             ['email' => 'admin@cbinteriors.com'],
             [
                 'name'     => 'CB Admin',
-                'password' => Hash::make('password'), // change immediately after first login
+                'password' => Hash::make('Cbadmin@11$'), // change immediately after first login
                 'role'     => 'admin',
             ]
         );

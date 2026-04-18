@@ -84,8 +84,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // ── Settings ──────────────────────────────────────────
         Route::prefix('settings')->name('settings.')->group(function () {
-            Route::get('/',  [SettingController::class, 'index'])->name('index');
-            Route::post('/', [SettingController::class, 'update'])->name('update');
+            Route::get('/',        [SettingController::class, 'index'])->name('index');
+            Route::post('/',       [SettingController::class, 'update'])->name('update');
+            Route::put('/account', [SettingController::class, 'updateAccount'])->name('account');
         });
 
         // ── Clients ───────────────────────────────────────────
