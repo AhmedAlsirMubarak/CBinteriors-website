@@ -17,10 +17,13 @@ class SettingSeeder extends Seeder
             ['key' => 'site.favicon',      'value' => null,                          'group' => 'general', 'label' => 'Favicon',          'type' => 'image'],
 
             // Contact
-            ['key' => 'contact.email',    'value' => 'hello@cbinteriors.com',       'group' => 'contact', 'label' => 'Email Address',    'type' => 'text'],
-            ['key' => 'contact.phone',    'value' => '+968 2400 0000',              'group' => 'contact', 'label' => 'Phone Number',     'type' => 'text'],
-            ['key' => 'contact.address',  'value' => 'Muscat, Sultanate of Oman',   'group' => 'contact', 'label' => 'Address',          'type' => 'textarea'],
-            ['key' => 'contact.maps_url', 'value' => null,                          'group' => 'contact', 'label' => 'Google Maps URL', 'type' => 'text'],
+            ['key' => 'contact.email',       'value' => 'hello@cbinteriors.com',     'group' => 'contact', 'label' => 'Email Address',    'type' => 'text'],
+            ['key' => 'contact.phone',       'value' => '+968 2400 0000',            'group' => 'contact', 'label' => 'Phone Number',     'type' => 'text'],
+            ['key' => 'contact.phone_label', 'value' => 'Yonelle',                  'group' => 'contact', 'label' => 'Phone 1 Name',     'type' => 'text'],
+            ['key' => 'contact.phone2',      'value' => '+968 9011 7722',            'group' => 'contact', 'label' => 'Phone (Karima)',   'type' => 'text'],
+            ['key' => 'contact.phone2_label','value' => 'Karima',                   'group' => 'contact', 'label' => 'Phone 2 Name',     'type' => 'text'],
+            ['key' => 'contact.address',     'value' => 'Muscat, Sultanate of Oman','group' => 'contact', 'label' => 'Address',          'type' => 'textarea'],
+            ['key' => 'contact.maps_url',    'value' => null,                       'group' => 'contact', 'label' => 'Google Maps URL',  'type' => 'text'],
 
             // Social
             ['key' => 'social.instagram', 'value' => null, 'group' => 'social', 'label' => 'Instagram URL', 'type' => 'text'],
