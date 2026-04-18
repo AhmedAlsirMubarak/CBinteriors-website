@@ -74,7 +74,7 @@
                 @endif
 
                 <div class="sm:col-span-2">
-                    <label class="admin-label">Add More Images</label>
+                    <label class="admin-label">Replace Images <span class="normal-case font-normal text-cb-gray-400">(uploading new images will remove all current ones)</span></label>
                     <input name="new_images[]" type="file" accept="image/*" multiple
                            class="block w-full text-sm text-cb-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:bg-cb-gray-100 file:text-cb-black hover:file:bg-cb-gray-200 cursor-pointer">
                 </div>

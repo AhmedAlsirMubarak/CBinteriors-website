@@ -59,7 +59,14 @@ class ProductAdminController extends Controller
         $validated['slug']        = Str::slug($validated['name']);
         $validated['is_featured'] = $request->boolean('is_featured');
         $validated['active']      = $request->boolean('active');
-        $validated['images']      = $this->handleImages($request, $product->images ?? []);
+
+        // If new images are uploaded, delete old ones and replace entirely
+        if ($request->hasFile('new_images')) {
+            foreach ($product->images ?? [] as $old) {
+                Storage::disk('public')->delete($old);
+            }
+            $validated['images'] = $this->handleImages($request, []);
+        }
 
         $product->update($validated);
 
