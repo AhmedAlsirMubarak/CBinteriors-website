@@ -25,6 +25,7 @@
     @if($products->isEmpty())
         <p class="px-5 py-12 text-center font-body text-sm text-cb-gray-400">No products found. <a href="{{ route('admin.products.create') }}" class="underline">Add one</a>.</p>
     @else
+        <div class="overflow-x-auto">
         <table class="admin-table" data-sortable="{{ route('admin.products.reorder') }}">
             <thead>
                 <tr>

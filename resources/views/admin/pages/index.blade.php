@@ -8,6 +8,7 @@
     <div class="px-5 py-4 border-b border-cb-gray-100">
         <p class="font-body text-xs text-cb-gray-500">Edit hero images and metadata for each page.</p>
     </div>
+    <div class="overflow-x-auto">
     <table class="admin-table">
         <thead>
             <tr>
@@ -51,6 +52,7 @@
             @endforeach
         </tbody>
     </table>
+    </div>
 </div>
 
 @endsection

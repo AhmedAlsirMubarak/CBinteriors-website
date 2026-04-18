@@ -82,6 +82,7 @@
         @if($clients->isEmpty())
             <p class="px-5 py-10 text-center font-body text-sm text-cb-gray-400">No clients yet.</p>
         @else
+            <div class="overflow-x-auto">
             <table class="admin-table" data-sortable="{{ route('admin.clients.reorder') }}">
                 <thead>
                     <tr>
@@ -143,6 +144,7 @@
                     @endforeach
                 </tbody>
             </table>
+            </div>
         @endif
     </div>
 </div>

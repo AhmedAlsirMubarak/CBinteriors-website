@@ -99,6 +99,7 @@
         @if($members->isEmpty())
             <p class="px-5 py-10 text-center font-body text-sm text-cb-gray-400">No team members yet.</p>
         @else
+            <div class="overflow-x-auto">
             <table class="admin-table" data-sortable="{{ route('admin.team.reorder') }}">
                 <thead>
                     <tr>
@@ -160,6 +161,7 @@
                     @endforeach
                 </tbody>
             </table>
+            </div>
         @endif
     </div>
 </div>

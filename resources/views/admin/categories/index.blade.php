@@ -73,6 +73,7 @@
         @if($categories->isEmpty())
             <p class="px-5 py-10 text-center font-body text-sm text-cb-gray-400">No categories yet.</p>
         @else
+            <div class="overflow-x-auto">
             <table class="admin-table" data-sortable="{{ route('admin.categories.reorder') }}">
                 <thead>
                     <tr>
@@ -126,6 +127,7 @@
                     @endforeach
                 </tbody>
             </table>
+            </div>
         @endif
     </div>
 </div>

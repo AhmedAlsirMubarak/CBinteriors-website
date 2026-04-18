@@ -24,6 +24,7 @@
     @if($inquiries->isEmpty())
         <p class="px-5 py-12 text-center font-body text-sm text-cb-gray-400">No inquiries found.</p>
     @else
+        <div class="overflow-x-auto">
         <table class="admin-table">
             <thead>
                 <tr>
@@ -73,7 +74,7 @@
                 @endforeach
             </tbody>
         </table>
-
+        </div>
         @if($inquiries->hasPages())
             <div class="px-5 py-4 border-t border-cb-gray-100">
                 {{ $inquiries->withQueryString()->links() }}

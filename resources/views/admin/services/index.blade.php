@@ -13,6 +13,7 @@
     @if($services->isEmpty())
         <p class="px-5 py-12 text-center font-body text-sm text-cb-gray-400">No services yet. <a href="{{ route('admin.services.create') }}" class="underline">Add one</a>.</p>
     @else
+        <div class="overflow-x-auto">
         <table class="admin-table" data-sortable="{{ route('admin.services.reorder') }}">
             <thead>
                 <tr>
@@ -70,6 +71,7 @@
                 @endforeach
             </tbody>
         </table>
+        </div>
     @endif
 </div>
 

@@ -33,6 +33,7 @@
         @if($recentInquiries->isEmpty())
             <p class="px-5 py-10 text-center font-body text-sm text-cb-gray-400">No inquiries yet.</p>
         @else
+            <div class="overflow-x-auto">
             <table class="admin-table">
                 <thead>
                     <tr>
@@ -65,6 +66,7 @@
                     @endforeach
                 </tbody>
             </table>
+            </div>
         @endif
     </div>
 
