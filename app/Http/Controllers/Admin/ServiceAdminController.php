@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Service;
+use App\Support\ImageOptimizer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -30,7 +31,7 @@ class ServiceAdminController extends Controller
         $validated['active']      = $request->boolean('active', true);
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('services', 'public');
+            $validated['image'] = ImageOptimizer::store($request->file('image'), 'services');
         }
 
         // Default sort_order to next available
@@ -58,7 +59,7 @@ class ServiceAdminController extends Controller
             if ($service->image) {
                 Storage::disk('public')->delete($service->image);
             }
-            $validated['image'] = $request->file('image')->store('services', 'public');
+            $validated['image'] = ImageOptimizer::store($request->file('image'), 'services');
         }
 
         $service->update($validated);

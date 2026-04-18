@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Page;
+use App\Support\ImageOptimizer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -45,7 +46,7 @@ class PageAdminController extends Controller
             if ($page->hero_image) {
                 Storage::disk('public')->delete($page->hero_image);
             }
-            $validated['hero_image'] = $request->file('hero_image')->store('pages', 'public');
+            $validated['hero_image'] = ImageOptimizer::store($request->file('hero_image'), 'pages');
         }
 
         $validated['active'] = $request->boolean('active');
@@ -60,7 +61,7 @@ class PageAdminController extends Controller
             if ($request->hasFile($imgKey)) {
                 $old = ($page->meta ?? [])[$imgKey] ?? null;
                 if ($old) Storage::disk('public')->delete($old);
-                $validated['meta'][$imgKey] = $request->file($imgKey)->store('pages', 'public');
+                $validated['meta'][$imgKey] = ImageOptimizer::store($request->file($imgKey), 'pages');
             }
         }
 

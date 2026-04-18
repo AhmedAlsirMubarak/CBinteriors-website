@@ -56,6 +56,7 @@
                                 <p class="font-body text-sm text-cb-gray-500 leading-relaxed mb-5">{{ $service->short_desc }}</p>
                             @endif
                             <a href="{{ route('services.show', $service->slug) }}"
+                               aria-label="Learn more about {{ $service->title }}"
                                class="inline-flex items-center gap-2 font-body text-xs tracking-[0.18em] uppercase text-cb-black
                                       border-b border-cb-gray-300 pb-0.5 hover:border-cb-black transition-colors duration-300 group/link">
                                 Learn More

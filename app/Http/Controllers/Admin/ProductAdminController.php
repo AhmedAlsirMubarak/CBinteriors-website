@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
+use App\Support\ImageOptimizer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -133,7 +134,7 @@ class ProductAdminController extends Controller
 
         if ($request->hasFile('new_images')) {
             foreach ($request->file('new_images') as $file) {
-                $images[] = $file->store('products', 'public');
+                $images[] = ImageOptimizer::store($file, 'products');
             }
         }
 
